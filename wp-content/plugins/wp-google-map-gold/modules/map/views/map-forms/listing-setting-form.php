@@ -161,7 +161,7 @@ $default_place_holder = '
 <a href="" class="place_title" data-zoom="{marker_zoom}" data-marker="{marker_id}">{marker_title}</a>
 </div>
 <div class="wpgmp_location_meta">
-<span class="wpgmp_location_category">Category : {marker_category}</span>
+<span class="wpgmp_location_category fc-badge info">{marker_category}</span>
 </div>
 </div>
 <div class="wpgmp_locations_content">

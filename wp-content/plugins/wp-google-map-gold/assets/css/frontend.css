@@ -53,12 +53,9 @@ div.wpgmp_search_form input.wpgmp_search_input {
 
 /* Secondary Color */
 
-.fc-badge:empty
-{
-    display:none;
-}
+
 .fc-label-info, .fc-badge.info, .wpgmp_pagination span,
-.wpgmp_pagination a, .wpgmp_toggle_main_container .amenity_type, div.categories_filter select, .wpgmp_tabs_container .wpgmp_tabs, .wpgmp_tab_item .wpgmp_location_container, .wpgmp_toggle_container {
+.wpgmp_pagination a, .wpgmp_toggle_main_container .amenity_type, div.categories_filter select, .wpgmp_tabs_container .wpgmp_tabs, .wpgmp_toggle_container {
         background: #212f3d;
 }
 
@@ -253,7 +250,6 @@ width: 100% !important;
 
 .wpgmp_tabs_container .wpgmp_tab_item {
     border-bottom: 1px solid #e8ebec;
-    text-indent: 10px;
     margin: 0px;
     padding: 10px 0px;
 }
@@ -291,7 +287,7 @@ a:focus {
     outline : none !important;
 }
 
-div#wpgmp_tab_1, div#wpgmp_tab_2 {
+div#wpgmp_tab_0, div#wpgmp_tab_1, div#wpgmp_tab_2, div#wpgmp_tab_3 {
     padding-left: 10px;
 }
 
@@ -477,12 +473,9 @@ span.wpgmp_nearby_distance {
 
 .wpgmp_direction_container p select[name="start_point"],
 .wpgmp_direction_container p select[name="end_point"] {
-    border: 1px solid #dddddd;
-    border-radius: 4px;
     box-shadow: none !important;
     display: block;
-    padding: 8px 5px;
-    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    margin-bottom: 10px;
 }
 
 
@@ -656,7 +649,6 @@ div.wpgmp_toggle_main_container div.wpgmp_tab_item ul.wpgmp_location_container l
 
 div.wpgmp_toggle_main_container div.wpgmp_tab_item ul.wpgmp_location_container li a {
     text-decoration: none;
-    color: #ffffff !important;
     margin-left: 10px;
 }
 
@@ -923,9 +915,10 @@ div.wpgmp_infowindow {
 .wpgmp_toggle_main_container .amenity_type {
     margin-right: 10px;
     color: #fff;
-    padding: 5px 10px;
+    padding: 0px 10px;
     margin-top: 10px;
     display: inline-block;
+    font-size: .6em;
 }
 
 .wpgmp_toggle_main_container .choose_amenities input[type='checkbox'] {
@@ -977,33 +970,6 @@ div.wpgmp_listing_container {
 .gm-style-iw .wpgmp_map img {
 max-width: 100% !important;
 }
-
- @media(max-width:650px){
-.wpgmp_tabs_container {
-    bottom: 23px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.75);
-    box-sizing: border-box !important;
-    left: 1%;
-    padding: 5px;
-    position: absolute;
-    right: 1%;
-    top: inherit;
-    width: 98%;
-    z-index: 100;
-}
-.span_grid,.span_list{
-    display:none;
-}
-}
-
-@media(max-width:600px){
-div.categories_filter select{
-       width: 48%;
-    margin-bottom: 8px;
-}
-}
-
-
 
 /** Infowindow Design **/
 
@@ -1106,4 +1072,172 @@ div.categories_filter select{
     height:20px;
     width:20px;
     z-index:100;
+}
+.wpgmp-control-outer {
+    padding: 5px;
+    text-align: center;
+    background: #ffffff;
+}
+@media only screen and (min-width : 0px) and (max-width : 319px) {
+
+    /* Styles */
+    .wpgmp_tabs_container *, .wpgmp_listing_container *, .wpgmp_pagination * {
+        font-size: 10px;
+    }
+
+    .wpgmp_listing_container .categories_filter select {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 4px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+}
+
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+
+    /* Styles */
+    .wpgmp_listing_container .categories_filter select {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 4px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    .wpgmp_tabs_container .wpgmp_tabs li a {
+        padding: 10px 5px;
+    }
+
+    .wpgmp_map_container .gm-style-iw {
+        width: 200px !important;
+    }
+
+}
+@media only screen and (min-width : 481px) and (max-width : 767px) {
+
+.wpgmp_map_container .gm-style-iw {
+        width: 200px !important;
+    }
+
+ .wpgmp_listing_container .categories_filter select {
+        width: 48%;
+        margin-bottom: 10px;
+        padding: 4px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+}
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+    .wpgmp_tabs_container  {
+        width: 30%;
+        max-width: 30%;
+    }
+         /* Styles */
+    .wpgmp_map_container .gm-style-iw {
+        width: 300px !important;
+    }
+
+    .wpgmp_tabs_container *, .wpgmp_listing_container *, .wpgmp_pagination * {
+        font-size: 12px;
+    }
+
+    .wpgmp_listing_container .categories_filter select {
+        margin-bottom: 10px;
+        padding: 0px;
+        height: 30px;
+    }
+
+     .wpgmp_pagination {
+        padding: 0px;
+    }
+
+    .wpgmp_listing_container .categories_filter select {
+        width: 48%;
+        margin-bottom: 10px;
+        padding: 4px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    }
+@media only screen and (min-width : 1024px) and (max-width : 1824px) {
+.wpgmp_tabs_container  {
+        width: 30%;
+        max-width: 30%;
+    }
+
+    .wpgmp_map_container .gm-style-iw {
+        width: 350px !important;
+    }
+
+}
+ 
+    /* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+    /* Styles */
+    .wpgmp_tabs_container  {
+        width: 30%;
+        max-width: 30%;
+    }
+
+    .wpgmp_map_container .gm-style-iw {
+        width: 350px !important;
+    }
+
+    }    
+
+@media only screen and (max-width : 768px) {
+
+     .wpgmp_toggle_main_container span.wpgmp_mcurrent_loction
+    {
+        margin-top: -34px;
+    }
+
+    
+    .wpgmp_infowindow .wpgmp_iw_content .fc-badge.info {
+        display: block;
+        margin-top: 10px;
+    }
+    .wpgmp_tabs_container *, .wpgmp_listing_container *, .wpgmp_pagination * {
+        font-size: 10px;
+    }
+    .wpgmp_pagination {
+        padding: 0px;
+    }
+    div.wpgmp_tabs_container div.wpgmp_tab_item span.arrow img {
+        width: 24px;
+    }
+
+    .wpgmp_locations_head .wpgmp_location_meta .fc-badge {
+        background: none;
+        color: #000;
+    }
+    .wpgmp_map_container {
+        box-shadow: none;
+    }
+    .fc-hide-mobile, .span_grid, .span_list {
+        display: none;
+    }
+    div.wpgmp_listing_header div.wpgmp_search_form {
+        margin: 0px;
+    }
+    .wpgmp_tabs_container {
+        position: relative;
+        top: 0;
+        left:0;
+        box-shadow: none;
+        -ms-box-shadow: none;
+        margin-top: 10px;
+    }
+
+    .wpgmp_toggle_container {display: none;}
+
+}
+
+.fc-badge:empty
+{
+    display:none;
 }

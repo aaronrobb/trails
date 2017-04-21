@@ -33,9 +33,7 @@ $form->set_header( __( 'Marker Category', WPGMP_TEXT_DOMAIN ), $response, __( 'M
 if ( is_array( $categories ) ) {
 	$markers = array( ' ' => 'Please Select' );
 	foreach ( $categories as $i => $single_category ) {
-		if ( $single_category->group_parent == 0 or $single_category->group_parent == '' ) {
 			$markers[ $single_category->group_map_id ] = $single_category->group_map_title;
-		}
 	}
 
 	$form->add_element('select', 'group_parent', array(
@@ -64,11 +62,12 @@ $form->add_element('image_picker', 'group_marker', array(
 	'required' => false,
 	'choose_button' => __( 'Choose', WPGMP_TEXT_DOMAIN ),
 	'remove_button' => __( 'Remove',WPGMP_TEXT_DOMAIN ),
+	'id' => 'marker_category_icon',
 ));
 
 $form->set_col( 1 );
 $form->add_element('text', 'extensions_fields[cat_order]', array(
-	'lable' => __( 'Marker Category Title', WPGMP_TEXT_DOMAIN ),
+	'lable' => __( 'Marker Category Order', WPGMP_TEXT_DOMAIN ),
 	'value' => (isset( $_POST['extensions_fields']['cat_order'] ) and ! empty( $_POST['extensions_fields']['cat_order'] )) ? sanitize_text_field( wp_unslash( $_POST['extensions_fields']['cat_order'] ) ) : '',
 	'id' => 'group_map_title',
 	'desc' => __( 'Enter here marker category title.', WPGMP_TEXT_DOMAIN ),

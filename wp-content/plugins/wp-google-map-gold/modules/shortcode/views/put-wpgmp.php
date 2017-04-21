@@ -233,8 +233,6 @@ wp_enqueue_script( 'wpgmp-google-map-main' );
 wp_enqueue_script( 'wpgmp-frontend' );
 wp_enqueue_style( 'wpgmp-frontend' );
 
-$map_custom_filters = array_map(function($element) {return $element['slug'];}, $map->map_all_control['custom_filters']);
-$map_custom_filters=array_map('trim',$map_custom_filters);
 
 if ( is_array( $map_locations ) ) {
 	$added_extra_fields = unserialize( get_option( 'wpgmp_location_extrafields' ) );
@@ -285,7 +283,7 @@ continue;
 $extra_fields = array();
 $location_extra_fields = array();
 $extra_fields_filters = array();
-
+$map_custom_filters = array();
 if ( isset( $added_extra_fields ) ) {
 foreach ( $added_extra_fields as $i => $label ) {
 $field_name = sanitize_title( $label );
@@ -383,6 +381,11 @@ if ( strpos( $map->map_layer_setting['map_links'], ',' ) !== false ) {
 $kml_layers_links = explode( ',', $map->map_layer_setting['map_links'] );
 } else {
 $kml_layers_links = array( $map->map_layer_setting['map_links'] );
+$new_kml_links = array();
+foreach($kml_layers_links as $kml ) {
+$new_kml_links[] = add_query_arg( 'x', time(), $kml );
+}
+$kml_layers_links = $new_kml_links;
 }
 
 $map_data['kml_layer']  = array(
@@ -965,7 +968,6 @@ $map_data['marker_cluster'] = array(
 'apply_style'  => ($map->map_cluster_setting['marker_cluster_style'] == 'true'),
 'marker_zoom_level' => (isset( $map->map_cluster_setting['location_zoom'] ) ? $map->map_cluster_setting['location_zoom'] : 10),
 );
-$map_data['marker_cluster'] = apply_filters( 'wpgmp_marker_cluster',$map_data['marker_cluster'],$map->map_id );
 }
 $map_data['marker_cluster'] = apply_filters('wpgmp_map_markercluster',$map_data['marker_cluster'],$map);
 
@@ -989,7 +991,7 @@ $map_data['panning_control'] = array(
 'from_longitude'      => $map->map_all_control['from_longitude'],
 'to_latitude'         => $map->map_all_control['to_latitude'],
 'to_longitude'        => $map->map_all_control['to_longitude'],
-'zoom_level'          => $map->map_zoom_level,
+'zoom_level'          => $map->map_all_control['zoom_level'],
 );
 }
 $map_data['panning_control'] = apply_filters('wpgmp_map_panning',$map_data['panning_control'],$map);
@@ -1013,8 +1015,7 @@ $map_data['map_tabs']   = array(
 'hide_location'	=> ($map->map_all_control['wpgmp_category_tab_hide_location'] == 'true'),
 'select_all'	=> ($map->map_all_control['wpgmp_category_tab_show_all'] == 'true'),
 'child_cats'	=> (array)$all_child_categories,
-
-
+'all_cats' => (array)$all_categories
 ),
 'direction_tab'         => array(
 'dir_tab' => ('true' == $map->map_all_control['wpgmp_direction_tab']),
@@ -1069,7 +1070,7 @@ $sorting_array = array(
 'category__desc'   => __('Z-A Category',WPGMP_TEXT_DOMAIN),
 'title__asc'       => __('A-Z Title',WPGMP_TEXT_DOMAIN),
 'title__desc'      => __('Z-A Title',WPGMP_TEXT_DOMAIN),
-'city__asc'        => __('A-Z City',WPGMP_TEXT_DOMAIN),
+'address__asc'    => __('A-Z Address',WPGMP_TEXT_DOMAIN),
 'address__desc'    => __('Z-A Address',WPGMP_TEXT_DOMAIN),
 );
 
@@ -1398,7 +1399,7 @@ if( trim( $map->map_all_control['color_schema'] ) != '' and $map->map_all_contro
 	$map->map_all_control['wpgmp_secondary_color'] = $color_schema_colors[1];
 }
 
-if( trim( $map->map_all_control['wpgmp_secondary_color'] ) != '' ) {
+if( trim( $map->map_all_control['wpgmp_secondary_color'] ) != '' && $map->map_all_control['wpgmp_secondary_color'] != '#' ) {
 
 	$primary_color = $map->map_all_control['wpgmp_secondary_color'];
 	$css_rules[] = $base_class.'.wpgmp_tabs_container .wpgmp_tabs, '.$base_class.'.fc-secondary-bg, '.$base_class.'.wpgmp_toggle_main_container .amenity_type, '.$base_class.'.wpgmp_pagination span.current, '.$base_class.'.wpgmp_pagination a:hover, .wpgmp_toggle_main_container input[type="submit"] {
@@ -1418,14 +1419,14 @@ background: '.$primary_color.';
 
 /* End Primary Color */
 
-if( trim( $map->map_all_control['wpgmp_primary_color'] ) != '' ) {
+if( trim( $map->map_all_control['wpgmp_primary_color'] ) != '' && $map->map_all_control['wpgmp_primary_color'] != '#') {
 
 	$secondary_color = $map->map_all_control['wpgmp_primary_color'];
 	
 	$css_rules[] = $base_class.'.wpgmp_tabs_container .wpgmp_tabs li a.active, '.$base_class.'.fc-primary-bg, '.$base_class.'.wpgmp_infowindow .fc-badge.info, '.$base_class.'.wpgmp_toggle_main_container .amenity_type:hover, '.$base_class.'
 .wpgmp_direction_container p input.wpgmp_find_direction,
 '.$base_class.'.wpgmp_nearby_container .wpgmp_find_nearby_button, '.$base_class.'.fc-label-info, '.$base_class.'.fc-badge.info, '.$base_class.'.wpgmp_pagination span,
-'.$base_class.'.wpgmp_pagination a, '.$base_class.'div.categories_filter select, '.$base_class.'.wpgmp_tab_item .wpgmp_location_container, '.$base_class.'.wpgmp_toggle_container {
+'.$base_class.'.wpgmp_pagination a, '.$base_class.'div.categories_filter select,  '.$base_class.'.wpgmp_toggle_container {
         background: '.$secondary_color.';
 }
 

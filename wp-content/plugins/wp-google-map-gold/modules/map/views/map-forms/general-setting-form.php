@@ -34,6 +34,7 @@ $form->add_element( 'select', 'map_zoom_level', array(
 	'current' => $data['map_zoom_level'],
 	'desc' => __( 'Available options 0 to 19.', WPGMP_TEXT_DOMAIN ),
 	'options' => $zoom_level,
+	'default_value' => 5,
 ));
 $map_type = array( 'ROADMAP' => 'ROADMAP','SATELLITE' => 'SATELLITE','HYBRID' => 'HYBRID','TERRAIN' => 'TERRAIN' );
 $form->add_element( 'select', 'map_type', array(

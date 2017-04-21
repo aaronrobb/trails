@@ -42,6 +42,7 @@ $zoom =  $form->field_select('map_all_control[screens]['.$screen_slug.'][map_zoo
 	'current' => $data['map_all_control']['screens'][$screen_slug]['map_zoom_level_mobile'],
 	'options' => $zoom_level,
 	'class' => 'form-controls',
+	'default_value' => '5',
 ));
 
 $draggable = $form->field_checkbox('map_all_control[screens]['.$screen_slug.'][map_draggable_mobile]', array(

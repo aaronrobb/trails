@@ -169,12 +169,9 @@ jQuery(document).ready(function($) {
 });
 
 function send_icon_to_map(imagesrc, target) {
-    wpgmp_image_id = jQuery("#" + target);
-    jQuery(wpgmp_image_id).find('.remove_image').show();
-    jQuery(wpgmp_image_id).find('img.selected_image').attr('src', imagesrc);
-    var img_hidden_field = jQuery(wpgmp_image_id).find('.choose_image').data('target');
-    jQuery(wpgmp_image_id).find('input[name="' + img_hidden_field + '"]').val(imagesrc);
-    jQuery('#temp_image').remove();
+     jQuery('#remove_image' + target).show();
+     jQuery('#image_' + target).attr('src', imagesrc).show();
+     jQuery('#input_' + target).val(imagesrc);
     tb_remove();
 }
 

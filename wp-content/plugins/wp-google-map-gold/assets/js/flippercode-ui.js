@@ -469,7 +469,6 @@ jQuery(document).ready(function($) {
     });
 
     window.attach_image = function(html) {
-
         $('body').append('<div id="temp_image' + currentClickedID + '">' + html + '</div>');
         var img = $('#temp_image' + currentClickedID).find('img');
         imgurl = img.attr('src');

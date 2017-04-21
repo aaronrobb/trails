@@ -65,6 +65,7 @@ if ( 'mouseclick' == $data['map_all_control']['infowindow_openoption'] ) {
 		'required' => false,
 		'choose_button' => __( 'Choose', WPGMP_TEXT_DOMAIN ),
 		'remove_button' => __( 'Remove',WPGMP_TEXT_DOMAIN ),
+		'id' => 'marker_category_icon',
 	));
 
 	$form->add_element( 'checkbox', 'map_all_control[infowindow_open]', array(

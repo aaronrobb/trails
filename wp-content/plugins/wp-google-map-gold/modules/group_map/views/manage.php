@@ -45,13 +45,22 @@ if ( class_exists( 'WP_List_Table_Helper' ) and ! class_exists( 'Wpgmp_Manage_Gr
 
 		}
 
+		public function column_extensions_fields($item) {
+
+			 global $wpdb;
+			 $order = unserialize($item->extensions_fields);
+			 return $order['cat_order'];
+
+		}
+
 	}
 	global $wpdb;
 	$columns   = array(
-	'group_map_title'  => 'Category Title',
-			           'group_marker' => 'Marker Image',
-			           'group_parent' => 'Parent Category',
-			           'group_added' => 'Updated On',
+	'group_map_title'  => __('Category Title',WPGMP_TEXT_DOMAIN),
+			           'group_marker' => __('Marker Image',WPGMP_TEXT_DOMAIN),
+			           'group_parent' => __('Parent Category',WPGMP_TEXT_DOMAIN),
+			           'extensions_fields' => __('Priority Order',WPGMP_TEXT_DOMAIN),
+			           'group_added' => __('Updated On', WPGMP_TEXT_DOMAIN),
 	);
 	$sortable  = array( 'group_map_title' );
 	$tableinfo = array(

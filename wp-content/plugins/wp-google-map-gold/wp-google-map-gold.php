@@ -3,7 +3,7 @@
  * Google_Maps_Pro class file.
  * @package Maps
  * @author Flipper Code <hello@flippercode.com>
- * @version 4.0.0
+ * @version 4.0.1
  */
 
 /*
@@ -12,7 +12,7 @@ Plugin URI: http://www.flippercode.com/
 Description: (Gold Version) World's most advanced google maps plugin. Location, Category, Layers, Controls, Shapes, Routes, Directions, Marker clusters, Listing, Places and many more...
 Author: flippercode
 Author URI: http://www.flippercode.com/
-Version: 4.0.0
+Version: 4.0.1
 Text Domain: wpgmp_google_map
 Domain Path: /lang/
 */
@@ -444,8 +444,8 @@ if ( ! class_exists( 'Google_Maps_Pro' ) ) {
 			$wpgmp_local['bicycling'] = __( 'Bicycling',WPGMP_TEXT_DOMAIN );
 			$wpgmp_local['walking'] = __( 'Walking',WPGMP_TEXT_DOMAIN );
 			$wpgmp_local['transit'] = __( 'Transit',WPGMP_TEXT_DOMAIN );
-			$wpgmp_local['metric'] = __( 'metric',WPGMP_TEXT_DOMAIN );
-			$wpgmp_local['imperial'] = __( 'imperial',WPGMP_TEXT_DOMAIN );
+			$wpgmp_local['metric'] = __( 'Metric',WPGMP_TEXT_DOMAIN );
+			$wpgmp_local['imperial'] = __( 'Imperial',WPGMP_TEXT_DOMAIN );
 			$wpgmp_local['find_direction'] = __( 'Find Direction',WPGMP_TEXT_DOMAIN );
 			$wpgmp_local['miles'] = __( 'Miles',WPGMP_TEXT_DOMAIN );
 			$wpgmp_local['km'] = __( 'KM',WPGMP_TEXT_DOMAIN );
@@ -823,12 +823,12 @@ if ( ! class_exists( 'Google_Maps_Pro' ) ) {
 		 */
 		function wpgmp_google_map_media_upload_tab() {
 
-			return wp_iframe( array( $this, 'wpgmp_google_map_icon' ), $errors );
+			return wp_iframe( array( $this, 'media_wpgmp_google_map_icon' ), $errors );
 		}
 		/**
 		 * Read images/icons folder.
 		 */
-		function wpgmp_google_map_icon() {
+		function media_wpgmp_google_map_icon() {
 
 			wp_enqueue_style( 'media' );
 			media_upload_header();
@@ -963,7 +963,7 @@ if ( ! class_exists( 'Google_Maps_Pro' ) ) {
 			}
 
 			if ( ! defined( 'WPGMP_VERSION' ) ) {
-				define( 'WPGMP_VERSION', '4.0.0' );
+				define( 'WPGMP_VERSION', '4.0.1' );
 			}
 
 			if ( ! defined( 'WPGMP_TEXT_DOMAIN' ) ) {
