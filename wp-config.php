@@ -1,6 +1,6 @@
 <?php
 
-// Set your environment/url pairs for local and production
+// Set your environment/url pairs
 $environments = array(
   'local'       => 'trails-aaronrobb.c9users.io',
   'production'  => 'rivertrail.cloudaccess.host'
