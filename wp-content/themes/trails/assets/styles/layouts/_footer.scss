@@ -1,0 +1,13 @@
+footer {
+    background: #1bcafe;
+    padding: 40px;
+    color: #fff;
+    border-bottom: 40px solid #2f2f2f;
+    ul {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        list-style:none;
+        padding: 0;
+    }
+}
