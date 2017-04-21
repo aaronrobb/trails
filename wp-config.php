@@ -1,4 +1,3 @@
-
 <?php
 
 // Set your environment/url pairs tt
