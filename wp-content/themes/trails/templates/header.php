@@ -3,7 +3,7 @@
   <div class="header-top container">
       <div class="d-flex justify-content-between align-items-center">
         <a href="<?php echo site_url(); ?>"><img src="<?= get_template_directory_uri(); ?>/assets/images/rivertraillogo.png" alt="River Trail logo" class="brand"></a>
-        <div class="socialtop"><a href="<?php echo site_url(); ?>my-river-trail/">#myRiverTrail</a></div>
+        <div class="socialtop"><a href="<?php echo site_url(); ?>/my-river-trail/">#myRiverTrail</a></div>
       </div>  
       <div class="container-header">
   			<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
