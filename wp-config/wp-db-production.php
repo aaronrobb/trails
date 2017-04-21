@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) exit();
 define('DB_NAME', 'rivertr1');
 define('DB_USER', 'rivertr1');
 define('DB_PASSWORD', '86Y6gvb2nJ');
-define('DB_HOST',     'localhost');
+define('DB_HOST', 'db');
 define('DB_CHARSET',  'utf8');
 define('DB_COLLATE',  '');
 
