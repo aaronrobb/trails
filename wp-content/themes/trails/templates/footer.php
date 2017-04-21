@@ -36,8 +36,8 @@
         1155 Emily Street<br>
         Mooretown Ontario<br>
         N0N 1M0<br>
-        (519) 867-2655<br>
-        Fax (519)867-2393<br>
+        519-867-2655<br>
+        Fax 519867-2393<br>
       </div>
     </div>
     <?php dynamic_sidebar('sidebar-footer'); ?>
