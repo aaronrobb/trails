@@ -12,7 +12,6 @@ wp-content/themes/trails/node_modules
 wp-content/themes/trails/npm-debug.log
 wp-content/themes/twentyfifteen/*
 wp-content/themes/twentysixteen/*
-!wp-content/themes/trails/dist
 
 # wordpress specific
 wp-config.php
